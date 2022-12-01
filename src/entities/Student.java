@@ -2,10 +2,14 @@
 package entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student implements Serializable{
@@ -16,6 +20,8 @@ public class Student implements Serializable{
     private int day;
     private int month;
     private int year;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private GroupName groupName;
 
     
     public Student() {
@@ -68,22 +74,31 @@ public class Student implements Serializable{
     public void setYear(int year) {
         this.year = year;
     }
+    
+    public GroupName getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(GroupName GroupName) {
+        this.groupName = GroupName;
+    }
 
     @Override
     public String toString() {
         return "Student{" 
-                + "id=" 
-                + id 
-                + ", name=" 
-                + name 
-                + ", lastname=" 
-                + lastname 
-                + ", day=" + day 
-                + ", month=" 
-                + month 
-                + ", year=" 
-                + year + '}';
+                + "id=" + id 
+                + ", name=" + name 
+                + ", lastname=" + lastname 
+                + ", day=" + day + ", month=" + month 
+                + ", year=" + year 
+                + ", groupName=" + groupName.getGname() 
+                + '}';
     }
+    
+
+   
+
+    
     
     
     
