@@ -20,9 +20,6 @@ public class Student implements Serializable{
     private int day;
     private int month;
     private int year;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private GroupName groupName;
-
     
     public Student() {
     }
@@ -75,13 +72,7 @@ public class Student implements Serializable{
         this.year = year;
     }
     
-    public GroupName getGroupName() {
-        return groupName;
-    }
 
-    public void setGroupName(GroupName GroupName) {
-        this.groupName = GroupName;
-    }
 
     @Override
     public String toString() {
@@ -90,8 +81,7 @@ public class Student implements Serializable{
                 + ", name=" + name 
                 + ", lastname=" + lastname 
                 + ", day=" + day + ", month=" + month 
-                + ", year=" + year 
-                + ", groupName=" + groupName.getGname() 
+                + ", year=" + year  
                 + '}';
     }
     
