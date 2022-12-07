@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class GroupName implements Serializable{
@@ -13,6 +15,7 @@ public class GroupName implements Serializable{
     private Long id;
     private String gname;
     private int year;
+   
 
     public GroupName() {
     }
